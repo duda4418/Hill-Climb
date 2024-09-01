@@ -33,6 +33,11 @@ public class FuelControl : MonoBehaviour
     {
         currentFuelAmount -= Time.deltaTime * fuelDrainSpeed;
         UpdateUI();
+
+        if (currentFuelAmount <= 0f)
+        {
+            LogicScript.instance.GameOver();
+        }
     }
 
     private void UpdateUI()
